@@ -1,0 +1,4 @@
+﻿
+<div class="alert-container" [ngClass]="pagePosition">
+    <alerter *ngFor="let alert of sortedAlerts" (onRemove)="removeAlert($event)" [alert]="alert"></alerter>
+</div>

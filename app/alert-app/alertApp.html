@@ -1,0 +1,44 @@
+﻿
+
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="title">Title:</label>
+        <div class="col-sm-10">
+            <input type="text" name="title" class="form-control" placeholder="Alert Title"  [(ngModel)]="alertTitle" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="message">Message:</label>
+        <div class="col-sm-10">
+            <input type="text" name="message" class="form-control" placeholder="Enter message" [(ngModel)]="alertMessage" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <label class="radio-inline"><input type="radio" name="optradio" value="alert-success" [(ngModel)]="alertType" />Success</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="alert-info" [(ngModel)]="alertType" />Info</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="alert-warning" [(ngModel)]="alertType" />Warning</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="alert-danger" [(ngModel)]="alertType" />Error</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="175" [(ngModel)]="pageLocation" />Top Left</label>
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="150" [(ngModel)]="pageLocation" />Top Center</label>
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="125" [(ngModel)]="pageLocation" />Top Right</label>
+        </div>
+        <div class="col-sm-offset-2 col-sm-10">
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="75" [(ngModel)]="pageLocation" />Bottom Left</label>
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="50" [(ngModel)]="pageLocation" />Bottom Center</label>
+            <label class="radio-inline"><input type="radio" name="locradio" [value]="25" [(ngModel)]="pageLocation" />Bottom Right</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-default" (click)="newAlert()">New Alert</button>
+        </div>
+    </div>
+</form>
+
+<alert-container [location]="pageLocation"></alert-container>
