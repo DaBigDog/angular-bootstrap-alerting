@@ -23,7 +23,7 @@ var AlertAppComponent = (function () {
     AlertAppComponent.prototype.ngOnInit = function () {
     };
     AlertAppComponent.prototype.newAlert = function () {
-        this.alertService.popAlert(this.alertType, this.alertTitle, this.alertMessage);
+        this.alertService.popAlert(this.alertType, this.alertTitle, this.alertMessage, this.displayTime, this.fadeoutTime);
     };
     return AlertAppComponent;
 }());

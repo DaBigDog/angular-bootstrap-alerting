@@ -19,6 +19,8 @@ export class AlertAppComponent
     private alertType: string = "alert-success";
     private alertMessage: string = "";
     private alertTitle: string = "";
+    private displayTime: number | null | undefined;
+    private fadeoutTime: number | null | undefined;
 
     constructor(private alertService : AlertService) {
 
@@ -31,7 +33,7 @@ export class AlertAppComponent
 
 
     private newAlert(): void {
-        this.alertService.popAlert(this.alertType, this.alertTitle, this.alertMessage);
+        this.alertService.popAlert(this.alertType, this.alertTitle, this.alertMessage, this.displayTime, this.fadeoutTime);
     }
    
 }

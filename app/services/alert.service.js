@@ -14,26 +14,32 @@ var AlertService = (function () {
         this.alertSubject = new Subject_1.Subject();
     }
     AlertService.prototype.alertError = function (errorMessage) {
-        this.setAlert("alert-danger", "Warning - An Error Occurred", errorMessage);
+        this.setAlert("alert-danger", "Warning - An Error Occurred", errorMessage, undefined, undefined);
     };
     AlertService.prototype.alertWarning = function (warningMessage) {
-        this.setAlert("alert-warning", "Warning", warningMessage);
+        this.setAlert("alert-warning", "Warning", warningMessage, undefined, undefined);
     };
     AlertService.prototype.alertInfo = function (infoMessage) {
-        this.setAlert("alert-info", "Information", infoMessage);
+        this.setAlert("alert-info", "Information", infoMessage, undefined, undefined);
     };
     AlertService.prototype.alertSuccess = function (successMessage) {
-        this.setAlert("alert-success", "Success", successMessage);
+        this.setAlert("alert-success", "Success", successMessage, undefined, undefined);
     };
-    AlertService.prototype.popAlert = function (alertType, title, message) {
-        this.setAlert(alertType, title, message);
+    AlertService.prototype.popAlert = function (alertType, title, message, displayTime, fadeoutTime) {
+        this.setAlert(alertType, title, message, displayTime, fadeoutTime);
     };
-    AlertService.prototype.setAlert = function (bannerClass, title, message) {
+    AlertService.prototype.setAlert = function (bannerClass, title, message, displayTime, fadeoutTime) {
         var alert = new alert_1.Alert();
         alert.Title = title;
         alert.Message = message;
         alert.BannerClass = bannerClass;
         alert.Id = Guid_1.Guid.newGuid();
+        if (undefined !== displayTime && null !== displayTime) {
+            alert.DisplayLengthSeconds = displayTime;
+            if (undefined !== fadeoutTime && null !== fadeoutTime) {
+                alert.FadeoutLengthSeconds = fadeoutTime;
+            }
+        }
         this.alertSubject.next(alert); // set value and alert subscribers
     };
     AlertService.prototype.getAlert = function () {

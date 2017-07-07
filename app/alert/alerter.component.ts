@@ -38,11 +38,13 @@ export class AlerterComponent {
 
 
     private initiateTimedDestroy(): void {
-        this.timer = setTimeout(() => {
-            this.fadeOut();
-        }, this.alert.DisplayLengthSeconds * 1000);
+        if (undefined === this.alert.DisplayLengthSeconds ||  (undefined !== this.alert.DisplayLengthSeconds && 0 < this.alert.DisplayLengthSeconds)) {
+            this.timer = setTimeout(() => {
+                this.fadeOut();
+            }, this.alert.DisplayLengthSeconds * 1000);
 
-        new Promise(resolve => this.timer);
+            new Promise(resolve => this.timer);
+        }
     }
 
     // adds css class to fade out element

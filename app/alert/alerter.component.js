@@ -61,10 +61,12 @@ var AlerterComponent = (function () {
     };
     AlerterComponent.prototype.initiateTimedDestroy = function () {
         var _this = this;
-        this.timer = setTimeout(function () {
-            _this.fadeOut();
-        }, this.alert.DisplayLengthSeconds * 1000);
-        new Promise(function (resolve) { return _this.timer; });
+        if (undefined === this.alert.DisplayLengthSeconds || (undefined !== this.alert.DisplayLengthSeconds && 0 < this.alert.DisplayLengthSeconds)) {
+            this.timer = setTimeout(function () {
+                _this.fadeOut();
+            }, this.alert.DisplayLengthSeconds * 1000);
+            new Promise(function (resolve) { return _this.timer; });
+        }
     };
     // adds css class to fade out element
     AlerterComponent.prototype.fadeOut = function () {

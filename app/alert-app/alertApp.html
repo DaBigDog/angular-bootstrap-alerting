@@ -15,6 +15,19 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-sm-2" for="display_time">Display Time (seconds):</label>
+        <div class="col-sm-10">
+            <input type="number" name="display_time" class="form-control" placeholder="Display Time Seconds" [(ngModel)]="displayTime" />
+            <span>No value = default time. 0 = Do not close, wait for user to click.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="fadeout_Time">Fadeout Time (seconds):</label>
+        <div class="col-sm-10">
+            <input type="number" name="fadeout_Time" class="form-control" placeholder="Fadeout Time Seconds" [(ngModel)]="fadeoutTime" />
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <label class="radio-inline"><input type="radio" name="optradio" value="alert-success" [(ngModel)]="alertType" />Success</label>
             <label class="radio-inline"><input type="radio" name="optradio" value="alert-info" [(ngModel)]="alertType" />Info</label>
